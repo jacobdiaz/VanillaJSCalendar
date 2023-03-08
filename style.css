@@ -1,3 +1,11 @@
+/* TODO Delete this when embedding intow web  */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 *,
 *:after {
   box-sizing: border-box;
@@ -30,15 +38,12 @@ body {
   background: transparent;
   color: black;
   margin-right: 1rem;
+  color: #666;
+  padding: 10px 0px;
 }
 #reserve-btn {
   background: black;
   color: white;
-  /* align this button to the right flex*/
-}
-
-#date-picker-section {
-  padding-top: 80px;
 }
 
 #date-picker-container {
@@ -84,46 +89,16 @@ body {
   font-weight: bold;
 }
 
-#date-picker-display-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.date-picker-display-pair {
-  margin: 10px;
-}
-
-.date-picker-display {
-  font-size: 40px;
-}
-
-.date-picker-display-label {
-  text-align: center;
-  font-size: 0.8rem;
-  position: relative;
-  top: -8px;
-  text-transform: uppercase;
-}
-
 #date-picker-modal {
-  width: 310px;
-  padding: 20px;
+  padding: 3rem;
   overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   transition: transform 0.1s;
   background: white;
-
-  width: 100%;
   display: flex;
   flex-direction: column;
-
   align-items: center;
 }
-/* Top Bar */
 
 #date-picker-top-bar {
   position: relative;

@@ -1,7 +1,12 @@
 const monthFormatter = new Intl.DateTimeFormat("en-us", { month: "long" });
 const weekdayFormatter = new Intl.DateTimeFormat("en-us", { weekday: "long" });
 
+const whatsAppMsg =
+  "'Hello%20Tours%20en%20Bici%20CDMX!%20I%20would%20like%20to%20schedule%20a%20tour%20for%20%5Bdate%5D.'";
+const whatsAppNumber = "5215583333677";
+const whatsAppLink = `https://wa.me/${whatsAppNumber}?text=${whatsAppMsg}`;
 var dates = [];
+
 dates[0] = new Date(); // defaults to today
 dates[1] = addDays(dates[0], 31);
 
@@ -109,11 +114,6 @@ function updateDatePicker(changeMonth = false) {
     var lastMonthLastDay = addDays(firstOfMonth, -1);
     var lastMonthDays = lastMonthLastDay.getDate();
     var lastMonthStartAdding = lastMonthDays - lastMonthToInclude + 1;
-
-    // add days from previous month
-    // takes arguments (start loop, end loop <=, counter, 'true' if current month OR class if another month (optional, default "") )
-    //addToCalendar(lastMonthStartAdding, lastMonthDays, 0, "previous-month");
-    //addToCalendar(lastMonthStartAdding, lastMonthDays, 0, "month-previous");
     addToCalendar(lastMonthStartAdding, lastMonthDays, 0, "previous-month");
   }
 
@@ -263,4 +263,6 @@ function updateDateShown() {
 
   updateDateBox.text(formattedDate);
   updateDisplayBox.text(dayAndMonth);
+
+  console.log(formattedDate, dates[0]);
 }
