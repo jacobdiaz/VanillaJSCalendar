@@ -9,9 +9,7 @@ body {
 *,
 *:after {
   box-sizing: border-box;
-  transition: all 0.24s;
   font-size: 16px;
-  /* Add source sans pro font family  */
   font-family: "Source Sans Pro", sans-serif;
   border-radius: 5px;
 }
@@ -24,6 +22,7 @@ button {
 }
 
 html,
+/* TPDP  */
 body {
   padding: 0;
   margin: 0;
@@ -53,8 +52,9 @@ body {
     30px 30px 50px 0 rgba(0, 0, 0, 0.06);
 }
 
-#date-picker-title {
+h4 {
   margin-bottom: 25px;
+  margin-left: 10px;
 }
 
 #date-picker-dates {
@@ -79,21 +79,12 @@ body {
   margin: 10px;
   cursor: pointer;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15), 3px 3px 5px 0 rgba(0, 0, 0, 0.06);
-  transition: none;
-}
-.date-picker-date:hover,
-.date-picker-date.active {
-  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2), 3px 3px 5px 0 rgba(0, 0, 0, 0.15);
-}
-.date-picker-date.active {
-  font-weight: bold;
 }
 
 #date-picker-modal {
   padding: 3rem;
   overflow: hidden;
-  user-select: none;
-  transition: transform 0.1s;
+
   background: white;
   display: flex;
   flex-direction: column;
@@ -111,6 +102,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  width: 100%;
 }
 
 .date-picker-change-month {
@@ -140,7 +133,7 @@ body {
 
 #date-picker {
   width: 280px;
-  table-layout: fixed;
+  /* table-layout: fixed; */
   position: relative;
 }
 #date-picker th,
