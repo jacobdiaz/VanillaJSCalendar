@@ -1,16 +1,12 @@
 const monthFormatter = new Intl.DateTimeFormat("en-us", { month: "long" });
 const weekdayFormatter = new Intl.DateTimeFormat("en-us", { weekday: "long" });
 
-const whatsAppMsg =
-  "'Hello%20Tours%20en%20Bici%20CDMX!%20I%20would%20like%20to%20schedule%20a%20tour%20for%20%5Bdate%5D.'";
-const whatsAppNumber = "5215583333677";
-const whatsAppLink = `https://wa.me/${whatsAppNumber}?text=${whatsAppMsg}`;
 var dates = [];
 
 dates[0] = new Date(); // defaults to today
 dates[1] = addDays(dates[0], 31);
 
-let currentDate = 0; // index into dates[]
+let currentDate = 0;
 let previousDate = 1;
 
 let datesBoxes = $(".date-picker-date");
@@ -66,6 +62,27 @@ $(document).ready(function () {
 
   $("#date-picker-previous-month").click(function () {
     changeMonth("Previous");
+  });
+
+  $("#reserve-btn").click(() => {
+    const date = getDateString(dates[currentDate]);
+    const [day, month, year] = date.split("/");
+    const dateObj = new Date(year, month - 1, day);
+
+    const formattedDateStr = dateObj.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+
+    const whatsAppMsg = `Hello Tours en Bici CDMX! I would schedule to reserve a tour for ${formattedDateStr}`;
+    const whatsAppNumber = "5215583333677";
+    const whatsAppLink = `https://wa.me/${whatsAppNumber}?text=${encodeURI(
+      whatsAppMsg
+    )}`;
+
+    window.open(whatsAppLink, "_blank");
   });
 });
 
@@ -201,8 +218,9 @@ function changeMonth(direction) {
   // change month name in picker
   updatePickerMonth();
 
+  // set selected date to the first of the month
+  dates[currentDate].setDate(1);
   // update calendar
-  // passes 'true' that month has changed
   updateDatePicker(true);
 }
 
@@ -263,6 +281,4 @@ function updateDateShown() {
 
   updateDateBox.text(formattedDate);
   updateDisplayBox.text(dayAndMonth);
-
-  console.log(formattedDate, dates[0]);
 }
