@@ -30,7 +30,6 @@ body {
 .reserve-btn-container {
   display: flex;
   align-items: end;
-  padding-top: 2rem;
   justify-content: end;
 }
 #reset-btn {
@@ -54,7 +53,22 @@ body {
 
 h4 {
   margin-bottom: 25px;
+}
+label {
   margin-left: 10px;
+  margin-bottom: 5px;
+}
+.num-guests-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  margin-bottom: 2.5rem;
+}
+#guests {
+  margin: 0px;
+  margin-left: 10px;
+  width: fit-content;
+  padding: 5px 10px;
 }
 
 #date-picker-dates {

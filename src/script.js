@@ -53,8 +53,8 @@ $(document).ready(() => {
       day: "numeric",
       year: "numeric",
     });
-
-    const whatsAppMsg = `Hello Tours en Bici CDMX! I would schedule to reserve a tour for ${formattedDateStr}`;
+    const numGuests = $("#guests").val();
+    const whatsAppMsg = `Hello Tours en Bici CDMX! \nI would like to schedule a tour on ${formattedDateStr} for ${numGuests} guest(s).`;
     const whatsAppNumber = "5215583333677";
     const whatsAppLink = `https://wa.me/${whatsAppNumber}?text=${encodeURI(
       whatsAppMsg
